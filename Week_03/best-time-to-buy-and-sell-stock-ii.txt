@@ -1,0 +1,12 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int prof = 0, i = 0;
+        while (i < prices.length) {
+            while (i < prices.length - 1 && prices[i] > prices[i + 1]) i++;
+            int bt = prices[i++];
+            while (i < prices.length - 1 && prices[i] < prices[i + 1]) i++;
+            prof += i < prices.length? prices[i] - bt : 0;
+        }
+        return prof;
+    }
+}
